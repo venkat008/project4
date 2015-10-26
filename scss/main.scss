@@ -1,0 +1,278 @@
+@import"reset";
+@import"animations";
+@import"fonts";
+
+body{
+  font-family: 'Raleway';
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.page{
+  position:absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+
+.page2{
+  background-color: black;
+  height: auto;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.head{
+  text-align: center;
+  width: 100%;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.formelements{
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+}
+.my-form
+{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.formelements input, select{
+padding: 15px;
+margin-top: 20px;
+ color: #ed4343;
+}
+
+.formelements button{
+  padding: 25px;
+  background-color:  #ed4343;;
+  margin-top:125px;
+    width: 100%;
+    color: white;
+    border-style: hidden;
+}
+
+.index{
+  background:#f00;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+.main{
+  height: 300px;
+  width: 100%;
+  padding-top: 35px;
+  color: white;
+}
+
+.indexfoot{
+  height: 250px;
+  width: 100%;
+  padding-top: 150px;
+  color: white;
+
+}
+
+
+
+@keyframes border-pulse {
+  0%   {
+    box-shadow:
+        0 0 0 1rem rgba(255, 255, 255, 0.1),
+        0 0 0 2rem rgba(255, 255, 255, 0.15),
+        0 0 0 3rem rgba(255, 255, 255, 0.2);
+  }
+  50%  {
+
+    box-shadow:
+        0 0 0 1.25rem rgba(255, 255, 255, 0.1),
+        0 0 0 2.75rem rgba(255, 255, 255, 0.1),
+        0 0 0 4rem rgba(255, 255, 255, 0);
+
+    }
+ 75%  {
+
+    box-shadow:
+        0 0 0 1.50rem rgba(255, 255, 255, 0.1),
+        0 0 0 3rem rgba(255, 255, 255, 0),
+        0 0 0 5rem rgba(255, 255, 255, 0);
+
+    }
+  100% {
+
+    box-shadow:
+        0 0 0 1.75rem rgba(255, 255, 255, 0),
+        0 0 0 3.75rem rgba(255, 255, 255, 0),
+        0 0 0 6rem rgba(255, 255, 255, 0);
+
+   }
+}
+
+.border-pulse {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:white;
+  animation: border-pulse 5s infinite ease-in-out;
+}
+
+.page3{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.report-head{
+  text-align: center;
+  width: 100%;
+  padding: 20px 0px;
+  color: white;
+  line-height: 20%;
+}
+
+
+.form-report{
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+}
+.reportingform{
+  margin: 0 auto;
+  width: 95%;
+}
+.reportingform select{
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  color:  #ed4343;
+}
+.reportingform button{
+  width: 100%;
+  padding: 25px;
+  margin-top: 50px;
+  background-color:  #ed4343;
+  color: white;
+  border-style: hidden;
+}
+.reportingform textarea{
+  width: 99.5%;
+  color:  #ed4343;
+}
+
+
+
+@keyframes invalid-input {
+	0% {
+		box-shadow:
+			0 0 0 0rem rgba(237,67,67, 1);
+	}
+	100% {
+		box-shadow:
+			0 0 0 0.5rem rgba(237,67,67, 0.2);
+	}
+}
+
+.show-validation{
+  transition: .5s linear all;
+}
+.show-validation input{
+  &.ng-invalid{
+    border-radius: 0;
+    animation: invalid-input 0.5s infinite;
+  }
+}
+
+.show-validation select{
+  &.ng-invalid{
+    border-radius: 0;
+    animation: invalid-input 0.5s infinite;
+  }
+}
+
+.show-validation textarea{
+  &.ng-invalid{
+    border-radius: 0;
+    animation: invalid-input 0.5s infinite;
+  }
+}
+
+.last{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+
+}
+
+.lasthead{
+  text-align: center;
+  width: 100%;
+  height: 20%;
+  line-height: 20%;
+  font-size: 22px;
+  margin-top: 30px;
+}
+.nav{
+   height: 20%;
+   background-color: black;
+   width: 100%;
+   text-align: center;
+}
+.elements{
+  height: 60%;
+  list-style: none;
+  overflow: scroll;
+
+}
+.elements ul{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+::-webkit-input-placeholder {
+   color: #ed4343;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #ed4343;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #ed4343;
+}
+
+:-ms-input-placeholder {
+   color: #ed4343;
+}
+
+.elements li{
+  width: 95%;
+  margin-bottom: 15px;
+  font-size: 20px;
+  margin-left: 15px;
+  font-weight: 400;
+}
+
+.nav button{
+  width: 95%;
+  background-color: #ed4343;
+  padding: 20px;
+  margin-top: 30px;
+  text-decoration: none;
+  color: white;
+  border-style: hidden;
+}

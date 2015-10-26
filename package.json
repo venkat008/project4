@@ -1,0 +1,26 @@
+{
+  "name": "project4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.9.10",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4",
+  
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venkat008/project4.git"
+  },
+  "author": "venkat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venkat008/project4/issues"
+  },
+  "homepage": "https://github.com/venkat008/project4#readme"
+}

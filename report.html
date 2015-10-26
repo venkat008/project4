@@ -1,0 +1,17 @@
+ <div class="page3">
+  <div  class="report-head">
+    <h1>Report Encounter<br /></h1>
+     <span>Safety on Mars is your responsibility</span>
+  </div>
+  <div class="form-report">
+    <form action="" class="reportingform" name="report" ng-class="{'show-validation': showvalidation}" ng-submit="submit($event)" novalidate>
+      <select required=""  ng-model="encounter.alien_id" ng-class="{ 'placeholder': !ailentype }" placeholder="Select alien type">
+        <option value="" class="placeholder">select alien type</option>
+        <option value="{{ alien.id }}" ng-repeat="alien in aliens"> {{ alien.type }} </option>
+   </select>
+   <textarea type="text" placeholder="Action Taken"  ng-model="encounter.action" rows="10" cols="" required="">
+   </textarea>
+       <button class="button" ng-click="submit($event, report)">Submit Report</button>
+  </form>
+</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="last">
+<div class="lasthead">
+<h1> Recent Encounters </h1>
+<h4>See an Alien? Report it!</h4>
+</div>
+<div class="elements">
+  <ui>
+    <li ng-repeat="e in encounters"> {{e.date}}{{e.atype}} <br> {{e.action}} </li>
+  </ui>
+</div>
+
+  <div class="nav">
+    <a ui-sref="report">
+<button type="submit" class="button">  Report Encounter</button></a>
+</div>
+</div>

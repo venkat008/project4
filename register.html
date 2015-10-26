@@ -1,0 +1,16 @@
+
+  <div class="page2">
+  <div class="head">
+    <h1> Who are you? </h1>
+  </div>
+    <div class="formelements">
+    <form action="" class="my-form" name="checkinForm" ng-class="{'show-validation': showvalidation}" ng-submit="submit($event)" novalidate>
+           <input type="text" placeholder="Name" ng-model="colonist.name" ng-pattern="/^[a-zA-Z]*$/" required="" ng-minlength="3"  />
+           <input type="number" placeholder="Age" ng-model="colonist.age" ng-pattern="/^[0-9]+$/" ng-maxlength="3" required />
+           <select required name="occupation" ng-model="colonist.job_id" ng-class="{ 'placeholder': !colonist.job_id }">
+              <option value="" class="placeholder">Select occupation</option>
+              <option value="{{ job.id }}" ng-repeat="job in jobs">{{ job.name }}</option>
+            </select>
+            <button class="button" type="submit" ng-click="submit($event, checkinForm)"> Check in </button>
+         </div>
+</div>
