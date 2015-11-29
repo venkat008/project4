@@ -121,3 +121,45 @@
 		transform:translate3d(200px, 0, 0);
 	}
 }
+
+
+@keyframes border-pulse {
+  0%   {
+    box-shadow:
+        0 0 0 1rem rgba(255, 255, 255, 0.1),
+        0 0 0 2rem rgba(255, 255, 255, 0.15),
+        0 0 0 3rem rgba(255, 255, 255, 0.2);
+  }
+  50%  {
+
+    box-shadow:
+        0 0 0 1.25rem rgba(255, 255, 255, 0.1),
+        0 0 0 2.75rem rgba(255, 255, 255, 0.1),
+        0 0 0 4rem rgba(255, 255, 255, 0);
+
+    }
+ 75%  {
+
+    box-shadow:
+        0 0 0 1.50rem rgba(255, 255, 255, 0.1),
+        0 0 0 3rem rgba(255, 255, 255, 0),
+        0 0 0 5rem rgba(255, 255, 255, 0);
+
+    }
+  100% {
+
+    box-shadow:
+        0 0 0 1.75rem rgba(255, 255, 255, 0),
+        0 0 0 3.75rem rgba(255, 255, 255, 0),
+        0 0 0 6rem rgba(255, 255, 255, 0);
+
+   }
+}
+
+.border-pulse {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:white;
+  animation: border-pulse 5s infinite ease-in-out;
+}

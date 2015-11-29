@@ -6,8 +6,8 @@
   "dependencies": {
     "browser-sync": "^2.9.10",
     "gulp": "^3.9.0",
-    "gulp-sass": "^2.0.4",
-  
+    "gulp-sass": "^2.0.4"
+
   },
   "devDependencies": {},
   "scripts": {

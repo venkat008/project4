@@ -1,4 +1,4 @@
-angular.module('mayFormApp', ['ui.router', 'ngAnimate', 'ngCookies'])
+angular.module('mayFormApp', ['ui.router', 'ngTouch', 'ngAnimate', 'ngCookies'])
 .run(function($rootScope){
  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
    $rootScope.stateName = toState.name;
@@ -16,8 +16,12 @@ angular.module('mayFormApp', ['ui.router', 'ngAnimate', 'ngCookies'])
         .state('welcome', {
           url: '/',
           templateUrl: 'index1.html',
-          controller: ['$cookies', function($cookies){
+          controller: ['$cookies', '$state', '$scope', function($cookies, $state, $scope){
+
             $cookies.putObject('mars_user', undefined);
+            $scope.swipeLeft = function() {
+                     $state.go('register');
+                   }
           }]
 
         })
@@ -28,23 +32,24 @@ angular.module('mayFormApp', ['ui.router', 'ngAnimate', 'ngCookies'])
           templateUrl: 'register.html',
           controller: 'RegisterFormCtrl',
           resolve: {
-            user: ['$cookies', function($cookies){
+            user: ['$cookies', '$state', function ($cookies, $state){
               if($cookies.getObject('mars_user')){
                 $state.go('encounter');
               }
             }]
           }
         })
-
-                $stateProvider
+$stateProvider
                 .state('encounter', {
                   url: '/encounter',
                      templateUrl: 'encounter.html',
-                  controller: ['$scope', '$http', function($scope, $http){
+                  controller: ['$scope', '$http', '$state', function($scope, $http, $state){
                   var ENCOUNTERS_API_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
 
                       $http.get(ENCOUNTERS_API_URL).then(function(response){
-
+                        $scope.swipeLeft = function() {
+                        $state.go('report');
+                      }
                        $scope.encounters = response.data.encounters;
 
                });
@@ -89,29 +94,30 @@ $scope.showvalidation = false;
 
  }])
 
+
  .controller('ReportFormCtrl', ['$scope' ,'$http','$cookies', '$state', function($scope, $http, $cookies, $state){
 
-            $scope.showValidation = false;
-           var API_URL_GET_ALIENS ="https://red-wdp-api.herokuapp.com/api/mars/aliens";
-            // var ENCOUNTERS_API_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
-            // $scope.encounter = {date: '2015-10-24', colonist_id: $cookies.getObject('mars_user').id};
-             $http.get(API_URL_GET_ALIENS).then(function(response){
-            $scope.aliens = response.data.aliens;
-                 });
+           $scope.showvalidation = false;
+          var API_URL_GET_ALIENS ="https://red-wdp-api.herokuapp.com/api/mars/aliens";
+           var ENCOUNTERS_API_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
+           $scope.encounter = {date: '2015-10-24', colonist_id: $cookies.getObject('mars_user').id};
+            $http.get(API_URL_GET_ALIENS).then(function(response){
+           $scope.aliens = response.data.aliens;
+                });
 
-          $scope.submitReport = function(e){
-             e.preventDefault();
-           if ($scope.myForm.$invalid) {
-            $scope.showValidation = true;
-          }else{
-            // $http({
-            //   method: 'POST',
-            //   url: ENCOUNTERS_API_URL,
-            //   data: {encounter: $scope.encounter}
-            // }).then(function(response){
-            //    $cookies.putObject('mars_user', response.data.encounter);
-          $state.go('encounter');
-        // })
-        }
-     }
-   }])
+         $scope.submitreport = function(e){
+            e.preventDefault();
+          if ($scope.report.$invalid) {
+           $scope.showvalidation = true;
+         }else{
+           $http({
+             method: 'POST',
+             url: ENCOUNTERS_API_URL,
+             data: {encounter: $scope.encounter}
+           }).then(function(response){
+
+         $state.go('encounter');
+       })
+       }
+    }
+  }])
